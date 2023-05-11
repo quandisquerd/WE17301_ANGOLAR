@@ -1,0 +1,23 @@
+<h1 class="title">product</h1>
+{{status ? "On" : "Off" }}
+<button (click)="toggle()">toggle</button>
+<input type="text" *ngIf="status" (input)="Inputvalue($event)">
+{{InputValue}}
+<table class="table">
+    <thead>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Img</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let products of product; index as i">
+            <td>{{i + 1}}</td>
+            <td>{{products.name}}</td>
+            <td>{{products.price}}</td>
+            <td><img src="{{products.img}}" alt=""></td>
+            <td><button class="btn btn-primary" (click)="remove(products._id)">XOA</button></td>
+        </tr>
+    </tbody>
+</table>
